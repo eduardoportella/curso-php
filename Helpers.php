@@ -1,6 +1,59 @@
 <?php
 
+function dataAtual() : string {
+   $diaMes = date('d');
+   $diaSemana = date('w');
+   $mes = date('n') - 1;
+   $diaAno = date('Y');
+
+   $nomeDiasSemana = ['domingo', 'segunda', 'terca', 'quarta', 'quinta,', 'sexta', 'sabado'];
+   $nomeMeses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto',
+      'Septembro', 'Octubre', 'November', 'Dezembro'];
+
+   $dataFormatada = $nomeDiasSemana[$diaSemana] . ', ' . $diaMes . ' de ' . $nomeMeses[$mes] .
+    ' de ' . $diaAno;
+
+   return $dataFormatada;
+}
+
+function url(string $url) : string {
+   $servidor = filter_input(INPUT_SERVER, 'SERVER_NAME');
+   $ambiente = ($servidor == 'localhost' ? URL_DEV : URL_PROD);
+
+   if (str_starts_with($url, '/')){
+      return $ambiente.$url;
+   }
+   return $ambiente.'/'.$url;
+
+}
+
+function localhost() {
+   $servidor = filter_input(INPUT_SERVER, 'SERVER_NAME');
+
+   if ($servidor == 'localhost'){
+      return true;
+   }
+
+   return $servidor;
+}
+
 function validarUrl(string $url): bool {
+   if (mb_strlen($url) < 10){
+      return false;
+   }
+
+   if (!str_contains($url, '.')){
+      return false;
+   }
+
+   if (str_starts_with($url, 'http://') || str_starts_with($url, 'https://')){
+      return true;
+   }
+
+   return false;
+}
+
+function validarUrlComFiltro(string $url): bool {
    return filter_var($url, FILTER_VALIDATE_URL);
 }
 
@@ -21,10 +74,21 @@ function formatarValor(float $valor = null):string {
  * @return string texto resumido
  */
 
-// function saudacao(){
-//    return date("l", mktime(0, 0, 0, 7, 1, 2000));
 
-// }
+function saudacao(){
+   // $hora = date('H');
+   $hora = date(3);
+   // $saudacao = match ($hora){
+   //    '1', '2', '3' => 'boa madrugada',
+   //    '20' => 'boa madrugada',
+   // };
+   $saudacao = match (true){
+      $hora >= 0 && $hora <= 5 => 'boa madrugada',
+      default => 'boa noite'
+   };
+
+   return $saudacao;
+}
 
 function resumirTexto($texto, $limite, $continue = '...'): string { 
    return $texto . $continue;

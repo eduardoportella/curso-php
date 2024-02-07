@@ -1,11 +1,12 @@
 <?php
 
-// require_once 'sistema/configuracao.php';
-// declare (strict_types = 1);
+require_once 'sistema/configuracao.php';
 include_once 'Helpers.php';
+include 'sistema/Nucleo/Mensagem.php';
 
+$msg = new Mensagem();
+// var_dump($msg);
 
-var_dump(validarEmail('mailcom'));
-var_dump(validarUrl('https://www.google.com'));
+echo $msg->renderizar();
 
 ?>
