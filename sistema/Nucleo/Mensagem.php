@@ -4,8 +4,20 @@ class Mensagem {
    private $texto = 'texto default';
    private $css;
 
+   public function sucesso($msg){
+      $this->css = 'alert alert-success';
+      $this->texto = $this->filtrar($msg);
+      return $this;
+   }
+
+   public function erro($msg){
+      $this->css = 'alert alert-danger';
+      $this->texto = $this->filtrar($msg);
+      return $this;
+   }
+
    public function renderizar(){
-      return $this->texto = $this->filtrar('msg default');
+      return "<div class='{$this->css}'>{$this->texto}</div>";
    }
 
    private function filtrar($msg){
