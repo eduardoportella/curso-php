@@ -1,5 +1,7 @@
 <?php
 
+namespace sistema\Nucleo;
+
 class Helpers {
 
    public static function  dataAtual() : string {
