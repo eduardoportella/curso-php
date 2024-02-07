@@ -4,6 +4,10 @@ class Mensagem {
    private $texto = 'texto default';
    private $css;
 
+   public function __toString(){
+      return $this->renderizar();
+   }
+
    public function sucesso($msg){
       $this->css = 'alert alert-success';
       $this->texto = $this->filtrar($msg);

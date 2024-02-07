@@ -7,9 +7,7 @@ include_once 'Helpers.php';
 include 'sistema/Nucleo/Mensagem.php';
 
 $msg = new Mensagem();
-// var_dump($msg);
 
-echo $msg->sucesso('msg sucesso')->renderizar();
-echo $msg->erro('msg erro')->renderizar();
+echo (new Mensagem())->erro('msg erro');
 
 ?>
