@@ -2,12 +2,12 @@
 
 <?php
 
+use sistema\Nucleo\Mensagem;
+
 require_once 'sistema/configuracao.php';
 include_once 'Helpers.php';
 include 'sistema/Nucleo/Mensagem.php';
 
-$msg = new Mensagem();
-
-echo (new Mensagem())->erro('msg erro');
+echo (new Mensagem)->erro('msg erro');
 
 ?>
