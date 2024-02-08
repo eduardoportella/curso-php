@@ -15,5 +15,7 @@
             "email": "eportella70@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "bissolli/validador-cpf-cnpj": "^1.2"
+    }
 }
