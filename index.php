@@ -1,15 +1,9 @@
 <?php
 
-require_once 'sistema/configuracao.php';
-include_once 'sistema/Nucleo/Helpers.php';
-include 'sistema/Nucleo/Mensagem.php';
-include 'sistema/Nucleo/Controlador.php';
+require 'vendor/autoload.php';
 
-use sistema\Nucleo\Controlador;
+echo SITE_NOME;
 
-$controlador2 = new Controlador;
-$controlador = new Controlador('admin');
-echo '<hr>';
-var_dump($controlador);
+echo sistema\Nucleo\Helpers::saudacao();
 
 ?>
