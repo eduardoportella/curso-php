@@ -3,9 +3,13 @@
 require_once 'sistema/configuracao.php';
 include_once 'sistema/Nucleo/Helpers.php';
 include 'sistema/Nucleo/Mensagem.php';
-use sistema\Nucleo\Helpers;
+include 'sistema/Nucleo/Controlador.php';
 
+use sistema\Nucleo\Controlador;
 
-echo Helpers::dataAtual();
+$controlador2 = new Controlador;
+$controlador = new Controlador('admin');
+echo '<hr>';
+var_dump($controlador);
 
 ?>
