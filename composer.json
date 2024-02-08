@@ -17,6 +17,7 @@
     ],
     "require": {
         "bissolli/validador-cpf-cnpj": "^1.2",
-        "pecee/simple-router": "5.4.1.7"
+        "pecee/simple-router": "5.4.1.7",
+        "twig/twig": "^3.0"
     }
 }
