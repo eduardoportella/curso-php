@@ -20,6 +20,6 @@ class SiteControlador extends Controlador{
 
    public function sobre()
    {
-      echo 'pagina sobre';
+      echo $this->template->renderizar('sobre.html', []);
    }
 }
