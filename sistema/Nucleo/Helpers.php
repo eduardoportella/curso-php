@@ -26,25 +26,23 @@ class Helpers {
       return;
    }
 
-   public static function url(string $url = null) : string {
-      $servidor = filter_input(INPUT_SERVER, 'SERVER_NAME');
-      $ambiente = ($servidor == 'localhost' ? URL_DEV : URL_PROD);
-
-      if (str_starts_with($url, '/')){
+   public static function url (string $url=null): string
+   {
+      $servidor = filter_input(INPUT_SERVER,'SERVER_NAME');
+      $ambiente = ($servidor == 'localhost'? URL_DEV : URL_PROD);
+      if(str_starts_with($url, '/')){
          return $ambiente.$url;
       }
       return $ambiente.'/'.$url;
-
    }
 
-   public static function localhost() {
-      $servidor = filter_input(INPUT_SERVER, 'SERVER_NAME');
-
-      if ($servidor == 'localhost'){
+   public static function localhost () :bool
+   {
+      $servidor = filter_input(INPUT_SERVER,'SERVER_NAME');
+      if($servidor == 'localhost'){
          return true;
       }
-
-      return $servidor;
+      return false;
    }
 
    public static function validarUrl(string $url): bool {
